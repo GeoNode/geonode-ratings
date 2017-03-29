@@ -81,4 +81,4 @@ def rate(request, content_type_id, object_id):
         overall.update()
         data["overall_rating"] = str(overall.rating)
     
-    return HttpResponse(json.dumps(data), mimetype="application/json")
+    return HttpResponse(json.dumps(data), content_type="application/json")
