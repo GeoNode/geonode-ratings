@@ -1,3 +1,4 @@
+import django
 import datetime
 
 from decimal import Decimal
@@ -7,7 +8,10 @@ from django.db import models
 from django.conf import settings
 
 from django.contrib.auth.models import User
-from django.contrib.contenttypes.generic.fields import GenericForeignKey
+if django.VERSION < (1, 9):
+    from django.contrib.contenttypes.generic.fields import GenericForeignKey
+else:
+    from django.contrib.contenttypes.fields import GenericForeignKey
 from django.contrib.contenttypes.models import ContentType
 
 from agon_ratings.categories import RATING_CATEGORY_CHOICES
